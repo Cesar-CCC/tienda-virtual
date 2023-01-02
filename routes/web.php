@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PlansController;
 use App\Http\Controllers\PlanController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', [PlanController::class, 'index']);
+Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
+Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -27,9 +32,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('plans', [PlanController::class, 'index']);
-    Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
-     Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
+    Route::get('/dashboard/plans',[PlansController::class,'index'])->name('plans');
+    Route::post('/dashboard/plans/create', [PlansController::class, 'create'])->name("plans.create");
 
 });
 
