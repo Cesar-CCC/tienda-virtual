@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\PlansController;
+use App\Http\Controllers\Admin\PlansController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\FaceBookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/', [PlanController::class, 'index']);
+Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
+Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
+
+// Facebook Login URL
+Route::prefix('facebook')->name('facebook.')->group( function(){
+    Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+    Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
 
 Route::middleware([
