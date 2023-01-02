@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\PlansController;
-use App\Http\Controllers\Admin\PlansController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\FaceBookController;
 use Illuminate\Support\Facades\Route;
