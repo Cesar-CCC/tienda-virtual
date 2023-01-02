@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [PlanController::class, 'index']);
-Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
-Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
-
 // Facebook Login URL
 Route::prefix('facebook')->name('facebook.')->group( function(){
     Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
