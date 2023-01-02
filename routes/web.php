@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PlansController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\FaceBookController;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('/', [PlanController::class, 'index']);
 Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
 Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
@@ -30,8 +30,6 @@ Route::prefix('facebook')->name('facebook.')->group( function(){
     Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
 
-=======
->>>>>>> def2957c4eb659f0e1ac51dcf3cec6cd231af81a
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -41,9 +39,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('plans', [PlanController::class, 'index'])->name("plans");
-    Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
-     Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
+    Route::get('/dashboard/plans',[PlansController::class,'index'])->name('plans');
+    Route::post('/dashboard/plans/create', [PlansController::class, 'create'])->name("plans.create");
 
 });
 
