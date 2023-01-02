@@ -40,7 +40,12 @@ Route::middleware([
     Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
 
     Route::get('adminplans', [PlansController::class, 'index'])->name("adminplans");
+    Route::get('/certificados/create', function () {
+        return view('admin.createPlans');
+    })->name('vistacrearplan');
     Route::post('adminplans/create', [PlansController::class, 'create'])->name("adminplans.create");
+    Route::get('adminplans/edit/{id}', [PlansController::class, 'edit'])->name("adminplans.edit");
+    Route::get('adminplans/delete/{id}', [PlansController::class, 'delete'])->name("adminplans.delete");
 });
 
 

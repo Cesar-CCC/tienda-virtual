@@ -29,5 +29,6 @@ class PlansController extends Controller
             'price' => $request->price,
             'description' => $request->description
         ]);
+        return redirect('/adminplans');
     }
 }

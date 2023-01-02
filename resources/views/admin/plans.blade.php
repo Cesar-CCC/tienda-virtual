@@ -58,25 +58,36 @@
                                     </div>
                                 </div> --}}
 
+                                <a href="{{ route('vistacrearplan') }}" class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Create</a>
+
                                 <table>
                                     <thead>
-
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>Precio</td>
+                                            <td>Acciones</td>
+                                        </tr>
                                     </thead>
                                     @foreach ($plans as $plan)
                                     <tr>
-                                        <th></th>
+                                        <th>{{$plan->name}}</th>
+                                        <th>{{$plan->price}}</th>
+                                        <th>
+                                            <a href="{{ route('adminplans.edit', $plan->id) }}" class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Edit</a>
+                                            <a href="{{ route('adminplans.delete', $plan->id) }}" class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Delete</a>
+                                        </th>
                                     </tr>
                                     @endforeach
                                 </table>
-                                @foreach ($plans as $plan)
-                                    <div class="col-lg-4 mb-5 mb-lg-0">
-                                        <div class="bg-white p-5 rounded-lg shadow">
-                                            <h1 class="h6 text-uppercase font-weight-bold mb-4">{{ $plan->name }}</h1>
-                                            <h2 class="h1 font-weight-bold">${{ $plan->price }}<span
-                                                    class="text-small font-weight-normal ml-2">soles</span></h2>
 
-                                            <div class="custom-separator my-4 mx-auto bg-primary"></div>
-{{--
+                                @foreach ($plans as $plan)
+                                <div class="col-lg-4 mb-5 mb-lg-0">
+                                    <div class="bg-white p-5 rounded-lg shadow">
+                                        <h1 class="h6 text-uppercase font-weight-bold mb-4">{{ $plan->name }}</h1>
+                                        <h2 class="h1 font-weight-bold">${{ $plan->price }}<span class="text-small font-weight-normal ml-2">soles</span></h2>
+
+                                        <div class="custom-separator my-4 mx-auto bg-primary"></div>
+                                        {{--
                                             <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
                                                 <li class="mb-3">
                                                     <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit
@@ -100,10 +111,9 @@
                                                     <del>Sed ut perspiciatis</del>
                                                 </li>
                                             </ul> --}}
-                                            <a href="{{ route('plans.show', $plan->slug) }}"
-                                                class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Comprar</a>
-                                        </div>
+                                        <a href="{{ route('plans.show', $plan->slug) }}" class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Comprar</a>
                                     </div>
+                                </div>
                                 @endforeach
                             </div>
                         </div>
