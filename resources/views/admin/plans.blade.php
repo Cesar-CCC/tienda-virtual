@@ -1,45 +1,28 @@
-<x-guest-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Productos') }}
+        </h2>
+    </x-slot>
 
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="container">
+                    <section>
+                        <div class="container py-5">
 
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                @endif
-                @endauth
-            </div>
-            @endif
+                            <header class="text-center mb-5 text-white">
+                                <div class="row">
+                                    <div class="col-lg-12 mx-auto">
+                                        <h1>Comprar producto</h1>
+                                        <h3>stock</h3>
+                                    </div>
+                                </div>
+                            </header>
 
-            <x-slot name="header">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('Dashboard') }}
-                </h2>
-            </x-slot>
-
-            <div class="py-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="overflow-hidden shadow-xl sm:rounded-lg">
-                        <div class="container">
-                            <section>
-                                <div class="container py-5">
-
-                                    <header class="text-center mb-5 text-white">
-                                        <div class="row">
-                                            <div class="col-lg-12 mx-auto">
-                                                <h1>Comprar producto</h1>
-                                                <h3>stock</h3>
-                                            </div>
-                                        </div>
-                                    </header>
-
-                                    <div class="row text-center align-items-end">
-                                        {{-- <div class="col-lg-4 mb-5 mb-lg-0">
+                            <div class="row text-center align-items-end">
+                                {{-- <div class="col-lg-4 mb-5 mb-lg-0">
                                     <div class="bg-white p-5 rounded-lg shadow">
                                         <h1 class="h6 text-uppercase font-weight-bold mb-4">FREE</h1>
                                         <h2 class="h1 font-weight-bold">$0<span
@@ -75,14 +58,15 @@
                                     </div>
                                 </div> --}}
 
-                                        @foreach ($plans as $plan)
-                                        <div class="col-lg-4 mb-5 mb-lg-0">
-                                            <div class="bg-white p-5 rounded-lg shadow">
-                                                <h1 class="h6 text-uppercase font-weight-bold mb-4">{{ $plan->name }}</h1>
-                                                <h2 class="h1 font-weight-bold">${{ $plan->price }}<span class="text-small font-weight-normal ml-2">soles</span></h2>
+                                @foreach ($plans as $plan)
+                                    <div class="col-lg-4 mb-5 mb-lg-0">
+                                        <div class="bg-white p-5 rounded-lg shadow">
+                                            <h1 class="h6 text-uppercase font-weight-bold mb-4">{{ $plan->name }}</h1>
+                                            <h2 class="h1 font-weight-bold">${{ $plan->price }}<span
+                                                    class="text-small font-weight-normal ml-2">soles</span></h2>
 
-                                                <div class="custom-separator my-4 mx-auto bg-primary"></div>
-                                                {{--
+                                            <div class="custom-separator my-4 mx-auto bg-primary"></div>
+{{--
                                             <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
                                                 <li class="mb-3">
                                                     <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit
@@ -106,20 +90,18 @@
                                                     <del>Sed ut perspiciatis</del>
                                                 </li>
                                             </ul> --}}
-                                                <a href="{{ route('plans.show', $plan->slug) }}" class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Comprar</a>
-                                            </div>
+                                            <a href="{{ route('plans.show', $plan->slug) }}"
+                                                class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Comprar</a>
                                         </div>
-                                        @endforeach
                                     </div>
-                                </div>
-                            </section>
-
+                                @endforeach
+                            </div>
                         </div>
+                    </section>
 
-                    </div>
                 </div>
+
             </div>
-
         </div>
-
+    </div>
 </x-app-layout>
