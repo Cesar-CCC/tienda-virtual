@@ -12,6 +12,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="../path/to/flowbite/dist/flowbite.js"></script>
 
         <link rel="stylesheet" href="{{ asset('css/app.css')  }}" rel="stylesheet" type="text/css">
 

@@ -12,6 +12,8 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="../path/to/flowbite/dist/flowbite.js"></script>
+
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
