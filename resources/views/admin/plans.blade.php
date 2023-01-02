@@ -64,17 +64,26 @@
                                     <thead>
                                         <tr>
                                             <td>Nombre</td>
+                                            <td>Slug</td>
                                             <td>Precio</td>
+                                            <td>Descripción</td>
                                             <td>Acciones</td>
                                         </tr>
                                     </thead>
                                     @foreach ($plans as $plan)
                                     <tr>
                                         <th>{{$plan->name}}</th>
+                                        <th>{{$plan->slug}}</th>
                                         <th>{{$plan->price}}</th>
+                                        <th>{{$plan->description}}</th>
                                         <th>
                                             <a href="{{ route('adminplans.edit', $plan->id) }}" class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Edit</a>
-                                            <a href="{{ route('adminplans.delete', $plan->id) }}" class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Delete</a>
+                                            <form action="{{ route('adminplans.delete', $plan->id)}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button class="btn bg-sky-500 px-3 py-2 rounded-lg  text-white btn-block shadow rounded-pill">Eliminar</button>
+                                            </form>
+
                                         </th>
                                     </tr>
                                     @endforeach

@@ -31,4 +31,27 @@ class PlansController extends Controller
         ]);
         return redirect('/adminplans');
     }
+
+    public function edit($id){
+        $plan = Plan::find($id);
+        return view('admin.editPlans', compact('plan'));
+    }
+
+    public function update($id, Request $request){
+        $plan = Plan::find($id);
+
+        $plan->name = $request->name;
+        $plan->slug = $request->slug;
+        $plan->stripe_plan = $request->stripe_plan;
+        $plan->price = $request->price;
+        $plan->description = $request->description;
+        $plan->save();
+
+        return redirect('/adminplans');
+    }
+
+    public function delete($id){
+        Plan::destroy($id);
+        return redirect('/adminplans');
+    }
 }

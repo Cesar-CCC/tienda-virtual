@@ -45,7 +45,8 @@ Route::middleware([
     })->name('vistacrearplan');
     Route::post('adminplans/create', [PlansController::class, 'create'])->name("adminplans.create");
     Route::get('adminplans/edit/{id}', [PlansController::class, 'edit'])->name("adminplans.edit");
-    Route::get('adminplans/delete/{id}', [PlansController::class, 'delete'])->name("adminplans.delete");
+    Route::put('adminplans/edit/{id}', [PlansController::class, 'update'])->name("adminplans.update");
+    Route::delete('adminplans/delete/{id}', [PlansController::class, 'delete'])->name("adminplans.delete");
 });
 
 
