@@ -15,7 +15,7 @@
                             <header class="text-center mb-5 text-white">
                                 <div class="row">
                                     <div class="col-lg-12 mx-auto">
-                                        <h1>Comprar producto</h1>
+                                        <h1>Productos</h1>
                                         <h3>stock</h3>
                                     </div>
                                 </div>
@@ -58,6 +58,16 @@
                                     </div>
                                 </div> --}}
 
+                                <table>
+                                    <thead>
+
+                                    </thead>
+                                    @foreach ($plans as $plan)
+                                    <tr>
+                                        <th></th>
+                                    </tr>
+                                    @endforeach
+                                </table>
                                 @foreach ($plans as $plan)
                                     <div class="col-lg-4 mb-5 mb-lg-0">
                                         <div class="bg-white p-5 rounded-lg shadow">

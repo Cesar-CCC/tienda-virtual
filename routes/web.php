@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PlansController;
 use App\Http\Controllers\PlanController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +30,10 @@ Route::middleware([
 
     Route::get('plans', [PlanController::class, 'index'])->name("plans");
     Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
-     Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
+    Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
 
+    Route::get('adminplans', [PlansController::class, 'index'])->name("adminplans");
+    Route::post('adminplans/create', [PlansController::class, 'create'])->name("adminplans.create");
 });
 
 
