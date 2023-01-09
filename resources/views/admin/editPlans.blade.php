@@ -2,7 +2,11 @@
     <x-slot name="header">
 
         <div class="flex ">
-            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="c>
+                <path fill-rule="evenodd"
+                    d="M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.747>
+                    clip-rule="evenodd" />
+            </svg>
 
 
             <h2 class="font-semibold text-md text-gray-800 leading-tight px-2 py-1">
